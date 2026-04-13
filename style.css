@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+    font-family: system-ui;
+    margin:0;
+}
+
+header, nav, footer, main{
+
+    border:2px solid rgb(195, 129, 129);
+    padding:3%;
+    text-decoration: none;
+
+}
