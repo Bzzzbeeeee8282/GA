@@ -26,7 +26,7 @@ foreach($data as $p){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPDATE</title>
 </head>
-<body>
+<body>  
         <h2>UPDATE</h2>
     <form action="../update/<?= $id ?>" method="post">
         <input type="text" name="brand" value = "<?= $p['brand'] ?>" placeholder="type">

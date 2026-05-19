@@ -8,7 +8,7 @@ require("html.php");
 get('/', function () {
 
     if (empty($_SESSION["user"])) {
-        Res::render(El::h2("HOME") . El::a("plushies", "./plushies"));
+        Res::render(El::h2("HOME") . El::a("plushies", "./plushies") . El::a("create", "./create") . El::a("register", "./register") . El::a("login", "./login"));
         return;
     }
 
@@ -154,7 +154,7 @@ post('/plushies/update/$id', function ($id) {
     $plushies = Data::getData("plushies");
 
     $i = null;
-    // Loopar igenom och hittar index (position ) och aktuell plush som skall ändras
+    // Loopar igenom och hittar index (position) och aktuell plush som skall ändras
     foreach ($plushies as $index => $plush) {
         if ($plush["id"] == $id) {
             $i = $index;
@@ -171,11 +171,12 @@ post('/plushies/update/$id', function ($id) {
         res::redirect("/plushies?forbidden");
         return;
     }
-    
 
 
         // Använder villkorsträng för att kolla om det nya har ett värde
     // om inte så använder vi det gamla...
+    //Ternary operator 
+
     $plushies[$i]['brand'] = $brand ? $brand : $plushies[$i]['brand'];
     $plushies[$i]['price'] = $price ? $price : $plushies[$i]['price'];
     $plushies[$i]['color'] = $color ? $color : $plushies[$i]['color'];
